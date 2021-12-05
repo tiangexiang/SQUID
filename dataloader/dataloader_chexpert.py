@@ -71,16 +71,12 @@ class ChexPert(torch.utils.data.Dataset):
         return len(self.data)
 
 if __name__ == '__main__':
-    img = plt.imread('/media/administrator/1305D8BDB8D46DEE/jhu/cxr8/images_01/images/00000005_003.png')
-    print(np.max(img))
-    
-    
-    # #dataset = ChexPert('/media/administrator/1305D8BDB8D46DEE/jhu/CheXpert-v1.0-small/CheXpert-v1.0-small/train_256', train=True)
-    # dataset = ChexPert('/media/administrator/1305D8BDB8D46DEE/jhu/CheXpert-v1.0-small/CheXpert-v1.0-small/valid_256_pa', train=False)
-    # trainloader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True, num_workers=8)
-    # for i, (img, label) in enumerate(trainloader):
-    #     print(img.shape, label.shape, torch.max(img))
-    #     img = img.numpy()
-    #     plt.imshow(img[0,0], cmap='gray')
-    #     plt.show()
-    #     break
+    #dataset = ChexPert('/media/administrator/1305D8BDB8D46DEE/jhu/CheXpert-v1.0-small/CheXpert-v1.0-small/train_256', train=True)
+    dataset = ChexPert('/media/administrator/1305D8BDB8D46DEE/jhu/CheXpert-v1.0-small/CheXpert-v1.0-small/valid_256_pa', train=False)
+    trainloader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True, num_workers=8)
+    for i, (img, label) in enumerate(trainloader):
+        print(img.shape, label.shape, torch.max(img))
+        img = img.numpy()
+        plt.imshow(img[0,0], cmap='gray')
+        plt.show()
+        break

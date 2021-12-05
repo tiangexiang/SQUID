@@ -7,41 +7,6 @@ from models.basic_modules import *
 from models.memory import MemoryQueue
 import numpy as np
 
-# def make_window(x, window_size, stride=1, padding=0):
-#     """
-#     Args:
-#         x: (B, W, H, C)
-#         window_size (int): window size
-
-#     Returns:
-#         windows: (B*N,  ws**2, C)
-#     """
-#     x = x.permute(0, 3, 1, 2).contiguous()
-#     B, C, W, H = x.shape
-#     windows = F.unfold(x, window_size, padding=padding, stride=stride) # B, C*N, #of windows
-#     windows = windows.view(B, C, window_size**2, -1) #   B, C, ws**2, N
-#     #windows = windows.view(B, C, window_size, window_size, -1)
-#     windows = windows.permute(0, 3, 2, 1).contiguous().view(-1, window_size, window_size, C) # B*N, ws**2, C
-    
-#     return windows
-
-# def window_reverse(windows, window_size, H, W):
-#     """
-#     Args:
-#         windows: (num_windows*B, window_size, window_size, C)
-#         window_size (int): Window size
-#         H (int): Height of image
-#         W (int): Width of image
-
-#     Returns:
-#         x: (B, H, W, C)
-#     """
-#     #print(windows.shape[0], W, H, window_size)
-#     B = int(windows.shape[0] / (H * W / window_size / window_size))
-#     #print(B)
-#     x = windows.view(B, H // window_size, W // window_size, window_size, window_size, -1)
-#     x = x.permute(0, 1, 3, 2, 4, 5).contiguous().view(B, H, W, -1)
-#     return x
 
 class InpaintBlock(nn.Module):
     def __init__(self, num_in_ch, num_slots, num_memory=9, memory_channel=2048,
@@ -82,7 +47,7 @@ class InpaintBlock(nn.Module):
 
         self.binary_encoding = binarize(torch.arange(0,num_memory,dtype=torch.int), int(np.log2(num_memory)+1)) # num_memory, bits
    
-        # mask for get the centre patch in a 3x3 neighborhood
+        # mask to get the centre patch in a 3x3 neighborhood
         self.center_mask = torch.Tensor([True, True, True, True, False, True, True, True, True]).cuda().view(9,).bool()
  
     def forward(self, x, bs, num_windows, add_condition=False):
@@ -106,7 +71,6 @@ class InpaintBlock(nn.Module):
             # enque
             self.memory[i].enque(f_x[:,i,:,0,0]) # enque only once at each step!
 
-
         # formulate patches into 3x3 neighborhoods
         new_n_x = n_x.view(B, C, 1, 1).permute(0, 2, 3, 1).contiguous()
         new_n_x = window_reverse(new_n_x, 1, int(num_windows**0.5),  int(num_windows**0.5)) # B, H, W, C
@@ -124,7 +88,7 @@ class InpaintBlock(nn.Module):
 
         f_x = n_x
         
-        # position condition, this may help?
+        # add position condition, this may help?
         if add_condition:
             f_x = self.add_condition(f_x, bs, num_windows) # B, N, C, 1 ,1
 

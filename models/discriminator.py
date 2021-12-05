@@ -6,29 +6,6 @@ from torch.autograd import Variable
 import numpy as np  
 
 
-class Bottleneck(nn.Module):
-    def __init__(self, in_channel, out_channel, stride=1, patch_size=28):
-        super(Net, self).__init__()
-        
-        self.conv1 = nn.Conv2d(in_channel, out_channel//4, 1, 1, 0, bias=False)
-        self.bn1 = nn.BatchNorm2d(out_channel//4)
-
-        self.conv2 = nn.Conv2d(out_channel//4, out_channel, 1, 1, 0, bias=False)
-        self.bn1 = nn.BatchNorm2d(out_channel)
-
-        self.conv = nn.Sequential(
-            nn.Conv2d(out_channel//4, out_channel//4, 3, stride, 1, bias=False),
-            nn.BatchNorm2d(out_channel//4),
-            nn.ReLU(),
-            nn.Conv2d(out_channel//4, out_channel//4, 3, 1, 1, bias=False),
-            nn.BatchNorm2d(out_channel//4),
-            nn.ReLU(),
-        )
-
-        if out_channel != in_channel:
-            self.shortcut = nn.Conv2d(in_channel, out_channel, 1, 1,0, bias=False)
-
-
 class SimpleDiscriminator(nn.Module):
     def __init__(self, size=4, inplace=True):
         super(SimpleDiscriminator, self).__init__()
