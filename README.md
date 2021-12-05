@@ -17,7 +17,7 @@ Please download the offical training/testing and our validation splits from [goo
 
 Different experiments are controlled by configure files, which are in ```configs/```. 
 
-All configure files are inherited from the base configure file: ```configs/base.py```, we suggest you to take a look at this base file first.
+All configure files are inherited from the base configure file: ```configs/base.py```, we suggest you to take a look at this base file first, and **change the dataset root path in your machine**.
 
 Then, you can inherite the base configure class and change settings as you want. 
 
