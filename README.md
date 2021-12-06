@@ -1,5 +1,13 @@
 # SQUID-private
 
+## Dependencies
+
+Please use our environment to reproduce the results through the following command:
+
+```
+conda env create -f environment.yml
+```
+
 ## File Structures
 
 * ```checkpoints/```: experiment folders, organized by unique exp identifier.
