@@ -6,6 +6,7 @@ Please use our environment to reproduce the results through the following comman
 
 ```
 conda env create -f environment.yml
+conda activate chris
 ```
 
 ## File Structures
