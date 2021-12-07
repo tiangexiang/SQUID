@@ -3,7 +3,8 @@
 We propose Space-aware memory QUeues for In-painting and Detecting anomalies from radiography images (abbreviated as SQUID).
 Radiography imaging protocols focus on particular body regions, therefore producing images of great similarity and yielding recurrent anatomical structures across patients.
 To exploit this structured information, SQUID consists of a new Memory Queue and a novel in-painting block in the feature space.
-We show that SQUID can taxonomize the ingrained anatomical structures into recurrent patterns; and in the inference, SQUID can identify anomalies (unseen/modified patterns) in the image.
+
+SQUID can taxonomize the ingrained anatomical structures into recurrent patterns; and in the inference, SQUID can identify anomalies (unseen/modified patterns) in the image.
 SQUID surpasses the state of the art in unsupervised anomaly detection by over 5 points on two chest X-ray benchmark datasets.
 
 ## Paper
