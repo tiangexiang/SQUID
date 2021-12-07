@@ -5,7 +5,6 @@ Radiography imaging protocols focus on particular body regions, therefore produc
 To exploit this structured information, SQUID consists of a new Memory Queue and a novel in-painting block in the feature space.
 We show that SQUID can taxonomize the ingrained anatomical structures into recurrent patterns; and in the inference, SQUID can identify anomalies (unseen/modified patterns) in the image.
 SQUID surpasses the state of the art in unsupervised anomaly detection by over 5 points on two chest X-ray benchmark datasets.
-Additionally, we have created a new dataset (DigitAnatomy), which synthesizes the spatial correlation and consistent shape in chest anatomy. We hope DigitAnatomy can prompt the development, evaluation, and interpretability of anomaly detection methods, particularly for radiography imaging.
 
 ## Paper
 
