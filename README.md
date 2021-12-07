@@ -1,4 +1,21 @@
-# SQUID-private
+# SQUID: In-painting Radiography Images for Unsupervised Anomaly Detection
+
+We propose Space-aware memory QUeues for In-painting and Detecting anomalies from radiography images (abbreviated as SQUID).
+Radiography imaging protocols focus on particular body regions, therefore producing images of great similarity and yielding recurrent anatomical structures across patients.
+To exploit this structured information, SQUID consists of a new Memory Queue and a novel in-painting block in the feature space.
+We show that SQUID can taxonomize the ingrained anatomical structures into recurrent patterns; and in the inference, SQUID can identify anomalies (unseen/modified patterns) in the image.
+SQUID surpasses the state of the art in unsupervised anomaly detection by over 5 points on two chest X-ray benchmark datasets.
+Additionally, we have created a new dataset (DigitAnatomy), which synthesizes the spatial correlation and consistent shape in chest anatomy. We hope DigitAnatomy can prompt the development, evaluation, and interpretability of anomaly detection methods, particularly for radiography imaging.
+
+## Paper
+
+This repository provides the official Pytorch implementation of SQUID in the following papers:
+**In-painting Radiography Images for Unsupervised Anomaly Detection** <br/>
+[Tiange Xiang](https://scholar.google.com/citations?hl=en&user=sskixKkAAAAJ)<sup>1</sup>, [Yongyi Lu](https://scholar.google.com/citations?user=rIJ99V4AAAAJ&hl=en&oi=ao)<sup>2</sup>, [Alan L. Yuille](https://www.cs.jhu.edu/~ayuille/)<sup>2</sup>, [Chaoyi Zhang](https://chaoyivision.github.io/)<sup>1</sup>, [Weidong Cai](https://weidong-tom-cai.github.io/)<sup>1</sup>, and [Zongwei Zhou](https://www.zongweiz.com)<sup>1</sup> <br/>
+<sup>1 </sup>University of Sydney,  <sup>2 </sup>Johns Hopkins University <br/>
+Arxiv <br/>
+[paper](https://arxiv.org/pdf/2111.13495.pdf) | [code](https://github.com/tiangexiang/SQUID-private)
+
 
 ## Dependencies
 
