@@ -8,9 +8,9 @@ from matplotlib import pyplot as plt
 import random
 
 import copy
-from dataloader.dataloader_digit import AbnomalMNIST, AbnomalMNISTTest
+# from dataloader.dataloader_digit import AbnomalMNIST, AbnomalMNISTTest
 from dataloader.dataloader_zhang import Zhang
-from dataloader.dataloader_chexpert import ChexPert
+# from dataloader.dataloader_chexpert import ChexPert
 import shutil
 
 import importlib
