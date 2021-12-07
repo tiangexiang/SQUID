@@ -1,4 +1,4 @@
-name: chris
+name: squid
 channels:
   - pytorch
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
@@ -201,4 +201,3 @@ dependencies:
     - zope-deprecation==4.4.0
     - zope-interface==5.4.0
     - zope-sqlalchemy==1.6
-prefix: /home/administrator/anaconda3/envs/chris
