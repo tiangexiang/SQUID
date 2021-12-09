@@ -23,7 +23,7 @@ Please use our environment to reproduce the results through the following comman
 
 ```
 conda env create -f environment.yml
-conda activate chris
+conda activate squid
 ```
 
 ## File Structures
@@ -34,10 +34,16 @@ conda activate chris
 * ```configs/```: configure files for different experiments, based on the base configure class.
 
 
-## Quick Start with ZhangLab Chest X-ray
+## Usage
 ### Data
 
+**ZhangLab Chest X-ray**
+
 Please download the offical training/testing and our validation splits from [google drive](https://drive.google.com/file/d/1kgYtvVvyfPnQnrPhhLt50ZK9SnxJpriC/view?usp=sharing), and unzip it to anywhere you like.
+
+**Stanford ChexPert**
+
+Please download the offical training/validation and our testing splits from [google drive](https://drive.google.com/file/d/14pEg9ch0fsice29O8HOjnyJ7Zg4GYNXM/view?usp=sharing), and unzip it to anywhere you like.
 
 ### Configs
 

@@ -10,7 +10,7 @@ from matplotlib import pyplot as plt
 import random
 import copy
 
-class ChexPert(torch.utils.data.Dataset):
+class CheXpert(torch.utils.data.Dataset):
     def __init__(self, root, train=True, img_size=(128, 128), normalize=False, enable_transform=True, data_type='pa', full=True):
 
         self.data = []
@@ -71,8 +71,8 @@ class ChexPert(torch.utils.data.Dataset):
         return len(self.data)
 
 if __name__ == '__main__':
-    #dataset = ChexPert('/media/administrator/1305D8BDB8D46DEE/jhu/CheXpert-v1.0-small/CheXpert-v1.0-small/train_256', train=True)
-    dataset = ChexPert('/media/administrator/1305D8BDB8D46DEE/jhu/CheXpert-v1.0-small/CheXpert-v1.0-small/valid_256_pa', train=False)
+    #dataset = CheXpert('/media/administrator/1305D8BDB8D46DEE/jhu/CheXpert-v1.0-small/CheXpert-v1.0-small/train_256', train=True)
+    dataset = CheXpert('/media/administrator/1305D8BDB8D46DEE/jhu/CheXpert-v1.0-small/CheXpert-v1.0-small/valid_256_pa', train=False)
     trainloader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True, num_workers=8)
     for i, (img, label) in enumerate(trainloader):
         print(img.shape, label.shape, torch.max(img))
