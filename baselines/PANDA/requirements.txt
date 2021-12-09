@@ -1,0 +1,12 @@
+faiss-gpu==1.6.3
+joblib==0.14.1
+matplotlib==3.2.1
+numba==0.49.1
+numpy==1.18.4
+Pillow==6.1.0
+scikit-learn==0.23.0
+scipy==1.4.1
+sklearn==0.0
+torch==1.5.1+cu101
+torchvision==0.6.1+cu101
+tqdm==4.46.0
