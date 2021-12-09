@@ -1,1 +1,0 @@
-python3 train.py --epochs 100
