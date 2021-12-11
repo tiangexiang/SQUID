@@ -19,7 +19,7 @@ Arxiv Preprint <br/>
 
 ## Dependencies
 
-Please use our environment to reproduce the results through the following command:
+Please clone our environment using the following command:
 
 ```
 conda env create -f environment.yml
@@ -53,7 +53,7 @@ All configure files are inherited from the base configure file: ```configs/base.
 
 Then, you can inherite the base configure class and change settings as you want. 
 
-We provide our default configures in ```configs/zhang_best.py```.
+We provide our default configures for ZhangLab: ```configs/zhang_best.py``` and CheXpert: ```configs/chexpert_best.py```.
 
 The path to a configure file needs to be passed to the program for training.
 
@@ -74,7 +74,7 @@ Alternatively, you can modify ```run.sh``` and simply run:
 ### Evaluation
 
 
-Evaluate with an exp folder (config file from the exp folder will be used instead):
+Evaluate with an exp identifier (config file will be imported from the *exp folder* instead):
 ``` 
 python3 eval.py --exp zhang_exp1
 ```
