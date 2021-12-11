@@ -8,9 +8,9 @@ from matplotlib import pyplot as plt
 import random
 
 import copy
-# from dataloader.dataloader_digit import AbnomalMNIST, AbnomalMNISTTest
+from dataloader.dataloader_digit import AbnomalMNIST, AbnomalMNISTTest
 from dataloader.dataloader_zhang import Zhang
-# from dataloader.dataloader_chexpert import ChexPert
+from dataloader.dataloader_chexpert import CheXpert
 import shutil
 
 import importlib
@@ -25,12 +25,12 @@ def parse_args():
     args, unparsed = parser.parse_known_args()
     return args
 
-def backup_files(args):
+def backup_files(args, model_file='squid'):
     # back up files
     shutil.copyfile('configs/'+args.config+'.py', os.path.join('checkpoints', args.exp, 'config.py'))
     shutil.copyfile('models/inpaint.py', os.path.join('checkpoints', args.exp, 'inpaint.py'))
     shutil.copyfile('models/memory.py', os.path.join('checkpoints', args.exp, 'memory.py'))
-    shutil.copyfile('models/squid.py', os.path.join('checkpoints', args.exp, 'squid.py'))
+    shutil.copyfile('models/'+model_file+'.py', os.path.join('checkpoints', args.exp, model_file+'.py'))
     shutil.copyfile('models/discriminator.py', os.path.join('checkpoints', args.exp, 'discriminator.py'))
     shutil.copyfile('models/basic_modules.py', os.path.join('checkpoints', args.exp, 'basic_modules.py'))
     shutil.copyfile('main.py', os.path.join('checkpoints', args.exp, 'main.py'))

@@ -6,12 +6,12 @@ from models.basic_modules import *
 from models.memory import Memory
 
 
-class CAE(nn.Module):
+class AE(nn.Module):
     def __init__(self, num_in_ch, features_root,
                  shrink_thres, num_slots=1000, num_patch=3, 
                  level=3, ratio=0.8, drop=0.5, memory_channel=2048,
                  dist=False, initial_combine=None, mem_num_slots=500):
-        super(CAE, self).__init__()
+        super(AE, self).__init__()
         self.num_in_ch = num_in_ch
         self.num_slots = num_slots
         self.shrink_thres = shrink_thres
@@ -36,7 +36,9 @@ class CAE(nn.Module):
                 filter = self.filter_list[level-i]
             self.up_blocks.append(up(filter, self.filter_list[level-1-i], op=ops[i], use_se=False))
         
-        self.memory = Memory(num_slots, 18432, shrink_thres=0)
+        #self.memory = Memory(num_slots, 18432, shrink_thres=shrink_thres)
+        self.memory = Memory(num_slots, 8192, shrink_thres=shrink_thres)
+
 
         self.out_conv = outconv(features_root, num_in_ch)
 
