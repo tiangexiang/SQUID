@@ -41,7 +41,11 @@ class BaseConfig():
         self.memory_channel = 2048
         self.img_size = 128
         self.mask_ratio = 0.95
-        self.ops = ['none', 'none', 'none', 'none']
+        self.ops = ['concat', 'concat', 'none', 'none']
+        self.decoder_memory = [None, 
+                               None, 
+                               dict(type='MemoryMatrixBlock', multiplier=64, num_memory=self.num_patch**2),
+                               dict(type='MemoryMatrixBlock', multiplier=16, num_memory=self.num_patch**2)]
 
         # loss weight
         self.t_w = 0.5

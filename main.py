@@ -43,7 +43,7 @@ backup_files(args)
 model = AE(1, 32, CONFIG.shrink_thres, num_slots=CONFIG.num_slots, num_patch=CONFIG.num_patch, level=CONFIG.level, 
             ratio=CONFIG.mask_ratio, initial_combine=CONFIG.initial_combine, drop=CONFIG.drop,
             dist=CONFIG.dist, memory_channel=CONFIG.memory_channel, mem_num_slots=CONFIG.mem_num_slots,
-            ops=CONFIG.ops).cuda()
+            ops=CONFIG.ops, decoder_memory=CONFIG.decoder_memory).cuda()
 opt = CONFIG.opt(model.parameters(), lr=CONFIG.lr, eps=1e-7, betas=(0.5, 0.999), weight_decay=0.00001)
 scheduler = CONFIG.scheduler(opt, **CONFIG.scheduler_args)
 
@@ -104,9 +104,16 @@ def main():
             torch.save(model.state_dict(), os.path.join('checkpoints',args.exp,'model.pth'))
             log(log_file, 'save model!')
 
+        # save latest model
+        if CONFIG.enbale_gan is not None:
+            torch.save(discriminator.state_dict(), os.path.join('checkpoints',args.exp,'discriminator_latest.pth'))
+        torch.save(model.state_dict(), os.path.join('checkpoints',args.exp,'model_latest.pth'))
+
         # save last 10 epochs generated imgs for debugging
         if epoch >= CONFIG.epochs - 10:
             save_image(os.path.join(save_path, 'epoch_'+str(epoch)), zip(reconstructed, inputs))
+        
+        save_image(os.path.join(save_path, 'latest'), zip(reconstructed, inputs))
 
     log_file.close()
 

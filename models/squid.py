@@ -1,12 +1,10 @@
 import math
 import sys
 import os
+import importlib
 
 from models.basic_modules import *
-from models.memory import MemoryMatrixBlock, \
-                   MemoryMatrixBlockV2, \
-                   MemoryMatrixBlockV3, \
-                   MemoryMatrixBlockV4
+import models.memory as Memory
 from models.inpaint import InpaintBlock
 
 
@@ -14,7 +12,7 @@ class AE(nn.Module):
     def __init__(self, num_in_ch, features_root, shrink_thres, 
                  num_slots=200, num_patch=2, level=4, ratio=0.95, 
                  drop=0.0, memory_channel=2048, dist=False, initial_combine=None, mem_num_slots=200,
-                 ops=['concat', 'concat', 'none', 'none']):
+                 ops=['concat', 'concat', 'none', 'none'], decoder_memory=None):
         super(AE, self).__init__()
         self.num_in_ch = num_in_ch
         self.num_slots = num_slots
@@ -24,6 +22,8 @@ class AE(nn.Module):
         self.num_patch = num_patch
         self.drop = drop
         print('SQUID ops:', ops)
+        
+        assert len(ops) == level # make sure there is an op for every decoder level
 
         self.filter_list = [features_root, features_root*2, features_root*4, features_root*8, features_root*16, features_root*16]
 
@@ -42,13 +42,17 @@ class AE(nn.Module):
 
         self.inpaint_block = InpaintBlock(self.filter_list[level], num_slots, num_memory=self.num_patch**2, memory_channel=memory_channel, shrink_thres=shrink_thres, ratio=ratio, drop=drop)
         
-        self.memory_blocks = nn.ModuleList([
-            nn.Identity(),
-            nn.Identity(),
+        assert decoder_memory is not None # decoder memory should NOT be none in all cases
 
-            MemoryMatrixBlock(mem_num_slots, self.filter_list[level-2] * 64, num_memory=4, shrink_thres=shrink_thres) if ops[1] != 'none' else nn.Identity(),
-            MemoryMatrixBlock(mem_num_slots, self.filter_list[level-1] * 16, num_memory=4, shrink_thres=shrink_thres) if ops[0] != 'none' else nn.Identity(),
-        ])
+        self.memory_blocks = nn.ModuleList()
+        for i, config in enumerate(decoder_memory):
+            if config is None:
+                self.memory_blocks.append(nn.Identity())
+            else:
+                self.memory_blocks.append(getattr(Memory, config['type'])(mem_num_slots, 
+                                                                          self.filter_list[i] * config['multiplier'], 
+                                                                          num_memory=config['num_memory'],
+                                                                          shrink_thres=shrink_thres))
 
         self.out_conv = outconv(features_root, num_in_ch)
 
@@ -103,10 +107,12 @@ class AE(nn.Module):
         self_dist_loss = []
         # decoding
         for i in range(self.level):
+            #print(x.shape)
             # combine patches?
             if self.initial_combine is not None and self.initial_combine == (self.level - i):
                 B_, c, w, h = x.shape
                 x = window_reverse(x.permute(0, 2, 3, 1).contiguous(), w, w * self.num_patch, w * self.num_patch).permute(0, 3, 1, 2)
+                #print(x.shape,'??')
                 t_x = window_reverse(t_x.permute(0, 2, 3, 1).contiguous(), w, w * self.num_patch, w * self.num_patch).permute(0, 3, 1, 2)
     
             x = self.up_blocks[i](x, skips[-1-i])
