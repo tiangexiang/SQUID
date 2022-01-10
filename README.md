@@ -45,6 +45,10 @@ Please download the offical training/testing and our validation splits from [goo
 
 Please download the offical training/validation and our testing splits from [google drive](https://drive.google.com/file/d/14pEg9ch0fsice29O8HOjnyJ7Zg4GYNXM/view?usp=sharing), and unzip it to anywhere you like.
 
+**DigitAnatomy**
+
+Please unzip the files in ```data/digitanatomy.zip```, and place them to the data root as specified in the ```configs/base.py```.
+
 ### Configs
 
 Different experiments are controlled by configure files, which are in ```configs/```. 
@@ -53,7 +57,7 @@ All configure files are inherited from the base configure file: ```configs/base.
 
 Then, you can inherite the base configure class and change settings as you want. 
 
-We provide our default configures for ZhangLab: ```configs/zhang_best.py``` and CheXpert: ```configs/chexpert_best.py```.
+We provide our default configures for ZhangLab: ```configs/zhang_best.py```, CheXpert: ```configs/chexpert_best.py``` and ```configs/digit_best.py```.
 
 The path to a configure file needs to be passed to the program for training.
 
