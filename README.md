@@ -102,3 +102,16 @@ python3 main_baseline.py --exp memae1 --config baseline_zhang
 python3 eval_baseline.py --exp memae1
 ```
 
+## Citation
+If you use this work for your research, please cite our paper:
+```
+@article{xiang2021painting,
+  title={In-painting Radiography Images for Unsupervised Anomaly Detection},
+  author={Xiang, Tiange and Liu, Yongyi and Yuille, Alan L and Zhang, Chaoyi and Cai, Weidong and Zhou, Zongwei},
+  journal={arXiv preprint arXiv:2111.13495},
+  year={2021}
+}
+```
+
+## Acknowledgement
+This work was supported by the Lustgarten Foundation for Pancreatic Cancer Research. We appreciate the constructive suggestions from Yingda Xia, Jessica Han, Yingwei Li, Bowen Li, Adam Kortylewski, Huiyu Wang, and Sonomi Oyagi.
