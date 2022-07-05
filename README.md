@@ -19,6 +19,10 @@ This repository provides the official Pytorch implementation of SQUID in the fol
 arXiv preprint arXiv:2111.13495 <br/>
 [paper](https://arxiv.org/pdf/2111.13495.pdf) | [code](https://github.com/tiangexiang/SQUID-private)
 
+## Benchmarking SQUID on Chest X-rays
+
+<p align="center"><img width="100%" src="figures/fig_ROC.png" /></p>
+
 ## Dependencies
 
 Please clone our environment using the following command:
