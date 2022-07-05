@@ -7,6 +7,8 @@ To exploit this structured information, SQUID consists of a new Memory Queue and
 SQUID can taxonomize the ingrained anatomical structures into recurrent patterns; and in the inference, SQUID can identify anomalies (unseen/modified patterns) in the image.
 SQUID surpasses the state of the art in unsupervised anomaly detection by over 5 points on two chest X-ray benchmark datasets.
 
+<p align="center"><img width="100%" src="figures/fig_framework.pdf" /></p>
+
 ## Paper
 
 This repository provides the official Pytorch implementation of SQUID in the following papers:
