@@ -14,7 +14,7 @@ This repository provides the official Pytorch implementation of SQUID in the fol
 **In-painting Radiography Images for Unsupervised Anomaly Detection** <br/>
 [Tiange Xiang](https://tiangexiang.github.io/)<sup>1</sup>, [Yongyi Lu](https://scholar.google.com/citations?user=rIJ99V4AAAAJ&hl=en&oi=ao)<sup>2</sup>, [Alan L. Yuille](https://www.cs.jhu.edu/~ayuille/)<sup>2</sup>, [Chaoyi Zhang](https://chaoyivision.github.io/)<sup>1</sup>, [Weidong Cai](https://weidong-tom-cai.github.io/)<sup>1</sup>, and [Zongwei Zhou](https://www.zongweiz.com)<sup>2</sup> <br/>
 <sup>1</sup>University of Sydney,  <sup>2</sup>Johns Hopkins University <br/>
-Arxiv Preprint <br/>
+arXiv preprint arXiv:2111.13495 <br/>
 [paper](https://arxiv.org/pdf/2111.13495.pdf) | [code](https://github.com/tiangexiang/SQUID-private)
 
 ## Dependencies
