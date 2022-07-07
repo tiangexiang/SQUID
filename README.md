@@ -93,7 +93,7 @@ Alternatively, you can modify ```eval.sh``` and simply run:
 ``` 
 ./eval.sh
 ```
-
+<!-- 
 ### Train MemAE
 
 ``` 
@@ -104,7 +104,7 @@ python3 main_baseline.py --exp memae1 --config baseline_zhang
 
 ``` 
 python3 eval_baseline.py --exp memae1
-```
+``` -->
 
 ## Citation
 If you use this work for your research, please cite our paper:
