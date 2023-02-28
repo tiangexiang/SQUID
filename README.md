@@ -1,4 +1,4 @@
-# SQUID: In-painting Radiography Images for Unsupervised Anomaly Detection
+# SQUID: In-painting Radiography Images for Unsupervised Anomaly Detection, CVPR 2023
 
 We propose Space-aware memory QUeues for In-painting and Detecting anomalies from radiography images (abbreviated as SQUID).
 Radiography imaging protocols focus on particular body regions, therefore producing images of great similarity and yielding recurrent anatomical structures across patients.
@@ -109,11 +109,11 @@ python3 eval_baseline.py --exp memae1
 ## Citation
 If you use this work for your research, please cite our paper:
 ```
-@article{xiang2021painting,
+@article{xiang2023painting,
   title={In-painting Radiography Images for Unsupervised Anomaly Detection},
   author={Xiang, Tiange and Liu, Yongyi and Yuille, Alan L and Zhang, Chaoyi and Cai, Weidong and Zhou, Zongwei},
-  journal={arXiv preprint arXiv:2111.13495},
-  year={2021}
+  journal={IEEE/CVF Converence on Computer Vision and Pattern Recognition},
+  year={2023}
 }
 ```
 
