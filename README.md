@@ -13,7 +13,7 @@ SQUID surpasses the state of the art in unsupervised anomaly detection by over 5
 
 This repository provides the official Pytorch implementation of SQUID in the following papers:
 
-**Deep Feature In-painting for Unsupervised Anomaly Detection in X-ray Images** <br/>
+**SQUID: Deep Feature In-Painting for Unsupervised Anomaly Detection** <br/>
 [Tiange Xiang](https://tiangexiang.github.io/)<sup>1</sup>, [Yixiao Zhang](https://0-scholar-google-com.brum.beds.ac.uk/citations?user=lU3wroMAAAAJ&hl=fi)<sup>2</sup>, [Yongyi Lu](https://scholar.google.com/citations?user=rIJ99V4AAAAJ&hl=en&oi=ao)<sup>2</sup>, [Alan L. Yuille](https://www.cs.jhu.edu/~ayuille/)<sup>2</sup>, [Chaoyi Zhang](https://chaoyivision.github.io/)<sup>1</sup>, [Weidong Cai](https://weidong-tom-cai.github.io/)<sup>1</sup>, and [Zongwei Zhou](https://www.zongweiz.com)<sup>2</sup> <br/>
 <sup>1</sup>University of Sydney,  <sup>2</sup>Johns Hopkins University <br/>
 CVPR, 2023 <br/>
