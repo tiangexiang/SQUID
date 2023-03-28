@@ -1,4 +1,4 @@
-# SQUID
+# :squid: SQUID :squid:
 
 We propose Space-aware memory QUeues for In-painting and Detecting anomalies from radiography images (abbreviated as SQUID).
 Radiography imaging protocols focus on particular body regions, therefore producing images of great similarity and yielding recurrent anatomical structures across patients.
