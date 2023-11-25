@@ -51,7 +51,7 @@ MODULE = importlib.import_module('checkpoints.'+args.exp+'.squid')
 model = MODULE.AE(1, 32, CONFIG.shrink_thres, num_slots=CONFIG.num_slots, num_patch=CONFIG.num_patch, level=CONFIG.level, 
             ratio=CONFIG.mask_ratio, initial_combine=CONFIG.initial_combine, drop=CONFIG.drop,
             dist=CONFIG.dist, memory_channel=CONFIG.memory_channel, mem_num_slots=CONFIG.mem_num_slots,
-            ops=CONFIG.ops).cuda()
+            ops=CONFIG.ops, decoder_memory=CONFIG.decoder_memory).cuda()
 
 print('Loading AE...')
 ckpt = torch.load(os.path.join('checkpoints',args.exp,'model.pth'))
