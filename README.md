@@ -19,6 +19,8 @@ This repository provides the official Pytorch implementation of SQUID in the fol
 CVPR, 2023 <br/>
 [paper](https://arxiv.org/pdf/2111.13495.pdf) | [code](https://github.com/tiangexiang/SQUID)
 
+**&#9733; An improved version can be found at [SimSID](https://github.com/MrGiovanni/SimSID) [![GitHub stars](https://img.shields.io/github/stars/MrGiovanni/SimSID.svg?logo=github&label=Stars)](https://github.com/MrGiovanni/SimSID).**
+
 ## Benchmarking SQUID on Chest X-rays
 
 <p align="center"><img width="100%" src="documents/fig_ROC.png" /></p>
@@ -114,6 +116,13 @@ If you use this work for your research, please cite our paper:
   author={Xiang, Tiange and Liu, Yongyi and Yuille, Alan L and Zhang, Chaoyi and Cai, Weidong and Zhou, Zongwei},
   journal={IEEE/CVF Converence on Computer Vision and Pattern Recognition},
   year={2023}
+}
+
+@article{xiang2024exploiting,
+  title={Exploiting Structural Consistency of Chest Anatomy for Unsupervised Anomaly Detection in Radiography Images},
+  author={Xiang, Tiange and Zhang, Yixiao and Lu, Yongyi and Yuille, Alan and Zhang, Chaoyi and Cai, Weidong and Zhou, Zongwei},
+  journal={arXiv preprint arXiv:2403.08689},
+  year={2024}
 }
 ```
 
